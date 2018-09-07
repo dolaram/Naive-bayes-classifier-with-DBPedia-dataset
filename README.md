@@ -1,4 +1,4 @@
-# Naive-bayes-classifier-with-DBPedia-dataset
+# Naive-bayes-classifier-for-DBPedia-text-dataset
 
 Useful Material
 1. Lemmatization
