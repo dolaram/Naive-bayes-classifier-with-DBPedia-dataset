@@ -167,53 +167,7 @@ for line in content:
         i= i+1
         print(true_labels," JGD ", pred_class)      
 
-
-# In[186]:
-
-
-i
-
-
-# In[159]:
-
-
-i = 0
-for line in content:
-    labels, sentence = line.split('\t',1)
-    sentence = sentence.lower()
-    # removing links
-    sentence =  ' '.join([x for x in sentence.split() if ('<' not in x) and ('\\' not in x)])
-    # removing numbers and punctuations
-    sentence = ''.join([x for x in sentence if (x not in string.punctuation) and (not x.isdigit()) ])
-    
-    text = sentence.split()
-    # remove the stop 
-    text = [word for word in text if word not in stopwords]
-    
-    #for label in labels.split(','):
-    #    true_label = label.strip()
         
-    true_labels = [label.strip() for label in labels.split(',')]
-    prob_den = {}
-    for class_label in train_dict.keys():
-        for word in text:
-            if (word in train_dict[class_label]) and len(word):
-                try:
-                    prob_den[class_label] = prob_den[class_label] + train_dict[class_label][word]
-                except:
-                    prob_den[class_label] = train_dict[class_label][word]
-                    
-                    
-    max_prob = -10000000
-    for class_label in prob_den.keys():
-        if(prob_den[class_label] >= max_prob):
-            pred_class = class_label
-            max_prob = prob_den[class_label]
-    if(pred_class in true_labels):
-        i= i+1
-        print(true_labels,"===", pred_class)
-
-
 # In[229]:
 
 
